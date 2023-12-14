@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
     colors: {
-      Navy: "rgb(25, 38, 85)",
-      blue1: "rgb(29, 38, 125)",
-      blue2: "rgb(0, 169, 255)",
-      white: "rgb(255, 255, 255)",
+      navy: "rgb(20,28,47)",
+      blue1: "rgb(31,42,72)",
+      blue2: "rgb(0,121,254)",
+      grey1: "rgb(233,234,237)",
+      grey2: "rgb(142, 148, 164)",
     },
   },
   plugins: [],
