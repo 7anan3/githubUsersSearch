@@ -40,9 +40,8 @@ export default function GithubUsers() {
   return (
     <AppContext.Provider value={{ user, users }}>
       <main className="p-6">
-        <NavBar name={user[0] && user[0].login} />
         <SearchBar />
-        <div>{user[0] && user[0].location}</div>
+        {/* <div>{user[0] && user[0].location}</div> */}
       </main>
     </AppContext.Provider>
   );

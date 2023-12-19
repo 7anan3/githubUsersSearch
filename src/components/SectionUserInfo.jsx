@@ -1,0 +1,52 @@
+export default function SectionUserInfo({
+  avatar,
+  date,
+  bio,
+  repos,
+  followers,
+  following,
+  location,
+  url,
+  twitter,
+}) {
+  return (
+    <section>
+      <div>
+        <figure>
+          <img src={avatar} alt="avatar" />
+        </figure>
+        <div>
+          <p></p>
+          <p></p>
+          <p>{date}</p>
+        </div>
+        <div>
+          <p>{bio}</p>
+        </div>
+        <div>
+          <div>
+            <p>Repos</p>
+            <p>{repos}</p>
+          </div>
+          <div>
+            <p>Followers</p>
+            <p>{followers}</p>
+          </div>
+          <div>
+            <p>Following</p>
+            <p>{following}</p>
+          </div>
+        </div>
+        <div>
+          <div>{location}</div>
+        </div>
+        <div>
+          <div>{url}</div>
+        </div>
+        <div>
+          <div>{twitter}</div>
+        </div>
+      </div>
+    </section>
+  );
+}

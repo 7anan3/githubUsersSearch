@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../GithubUsers";
+import NavBar from "./NavBar";
+import SectionUserInfo from "./SectionUserInfo";
 export default function SearchBar() {
   const { user, users } = useContext(AppContext);
   const [searchInput, setSearchInput] = useState("");
@@ -14,22 +16,37 @@ export default function SearchBar() {
       setSearchResult(null);
     }
   };
-  console.log(searchResult);
+
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
 
+  console.log(user);
   return (
-    <form>
-      <input
-        type="text"
-        placeholder="Search Github username"
-        value={searchInput}
-        onChange={handleSearchInput}
+    <div>
+      <NavBar name={searchResult && searchResult.login} />
+      <form>
+        <input
+          type="text"
+          placeholder="Search Github username"
+          value={searchInput}
+          onChange={handleSearchInput}
+        />
+        <button className="bg-blue2" onClick={handleSearch}>
+          Search
+        </button>
+      </form>
+      <SectionUserInfo
+        avatar={searchResult && searchResult.avatar_url}
+        date={searchResult && searchResult.created_at}
+        bio={searchResult && searchResult.bio}
+        repos={searchResult && searchResult.public_repos}
+        followers={searchResult && searchResult.followers}
+        following={searchResult && searchResult.following}
+        location={searchResult && searchResult.location}
+        url={searchResult && searchResult.html_url}
+        twitter={searchResult && searchResult.twitter_username}
       />
-      <button className="bg-blue2" onClick={handleSearch}>
-        Search
-      </button>
-    </form>
+    </div>
   );
 }
