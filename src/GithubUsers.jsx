@@ -1,5 +1,9 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
+import SearchBar from "./components/SearchBar";
+
+export const AppContext = createContext();
+
 export default function GithubUsers() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
@@ -33,11 +37,13 @@ export default function GithubUsers() {
       });
   }, [accessToken]);
 
-  console.log(user);
   return (
-    <main className="p-6">
-      <NavBar name={user[0] && user[0].login} />
-      <div>{user[0] && user[0].location}</div>
-    </main>
+    <AppContext.Provider value={{ user, users }}>
+      <main className="p-6">
+        <NavBar name={user[0] && user[0].login} />
+        <SearchBar />
+        <div>{user[0] && user[0].location}</div>
+      </main>
+    </AppContext.Provider>
   );
 }
