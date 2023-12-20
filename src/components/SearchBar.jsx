@@ -45,7 +45,7 @@ export default function SearchBar() {
       <SectionUserInfo
         avatar={searchResult && searchResult.avatar_url}
         date={searchResult && searchResult.created_at}
-        bio={searchResult && searchResult.bio}
+        bio={(searchResult && searchResult.bio) || "This profile has no bio"}
         repos={searchResult && searchResult.public_repos}
         followers={searchResult && searchResult.followers}
         following={searchResult && searchResult.following}
@@ -54,6 +54,7 @@ export default function SearchBar() {
         twitter={
           (searchResult && searchResult.twitter_username) || "Not available"
         }
+        name1={searchResult && searchResult.name}
       />
     </div>
   );
