@@ -25,31 +25,33 @@ export default function SectionUserInfo({
       <div className="my-8 text-grey2 text-base font-light">
         <p>{bio}</p>
       </div>
-      <div>
+      <div className="flex justify-between text-center bg-grey2 px-8 py-6 rounded-lg ">
         <div>
-          <p>Repos</p>
+          <p className="font-light">Repos</p>
           <p>{repos}</p>
         </div>
         <div>
-          <p>Followers</p>
+          <p className="font-light">Followers</p>
           <p>{followers}</p>
         </div>
         <div>
-          <p>Following</p>
+          <p className="font-light">Following</p>
           <p>{following}</p>
         </div>
       </div>
-      <div>
-        <div>{location}</div>
-      </div>
-      <div>
-        <div>{url}</div>
-      </div>
-      <div>
-        <div>{twitter}</div>
-      </div>
-      <div>
-        <div>{twitter}</div>
+      <div className="my-8">
+        <div>
+          <div>{location}</div>
+        </div>
+        <div>
+          <div>{url}</div>
+        </div>
+        <div>
+          <div>{twitter}</div>
+        </div>
+        <div>
+          <div>{twitter}</div>
+        </div>
       </div>
     </section>
   );
