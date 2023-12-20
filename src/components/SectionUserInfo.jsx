@@ -40,16 +40,24 @@ export default function SectionUserInfo({
         </div>
       </div>
       <div className="my-8">
-        <div>
+        <div className="flex mb-4">
+          <img src="map-pin.svg" alt="map pin" className="w-6" />
           <div>{location}</div>
         </div>
-        <div>
+        <div className="flex mb-4">
+          <img src="link.svg" alt="link" className="w-6" />
           <div>{url}</div>
         </div>
-        <div>
+        <div className="flex mb-4">
+          <img src="twitter-icon.svg" alt="twitter icon" className="w-6" />
           <div>{twitter}</div>
         </div>
-        <div>
+        <div className="flex mb-4">
+          <img
+            src="building-office.svg"
+            alt="building office"
+            className="w-6"
+          />
           <div>{twitter}</div>
         </div>
       </div>
