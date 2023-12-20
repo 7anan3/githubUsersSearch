@@ -25,16 +25,22 @@ export default function SearchBar() {
   return (
     <div>
       <NavBar name={searchResult && searchResult.login} />
-      <form>
-        <input
-          type="text"
-          placeholder="Search Github username"
-          value={searchInput}
-          onChange={handleSearchInput}
-        />
-        <button className="bg-blue2" onClick={handleSearch}>
-          Search
-        </button>
+      <form className="flex items-center mt-8 mb-5">
+        <div className="relative shrink-0 w-full">
+          <input
+            type="text"
+            placeholder="Search Github username"
+            value={searchInput}
+            onChange={handleSearchInput}
+            className="p-4 shadow w-full rounded-lg text-grey2 font-light"
+          />
+          <button
+            className="bg-blue2 absolute top-1/2 right-[-33px] transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-lg text-white"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
+        </div>
       </form>
       <SectionUserInfo
         avatar={searchResult && searchResult.avatar_url}

@@ -9,6 +9,7 @@ export default {
       blue2: "rgb(0,121,254)",
       grey1: "rgb(233,234,237)",
       grey2: "rgb(142, 148, 164)",
+      white: "rgb(255 255 255)",
     },
   },
   fontFamily: {
