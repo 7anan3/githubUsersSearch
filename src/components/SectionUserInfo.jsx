@@ -46,6 +46,9 @@ export default function SectionUserInfo({
         <div>
           <div>{twitter}</div>
         </div>
+        <div>
+          <div>{twitter}</div>
+        </div>
       </div>
     </section>
   );

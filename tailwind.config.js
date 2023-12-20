@@ -11,5 +11,8 @@ export default {
       grey2: "rgb(142, 148, 164)",
     },
   },
+  fontFamily: {
+    leagueSpartan: ["League Spartan", "sans-serif"],
+  },
   plugins: [],
 };

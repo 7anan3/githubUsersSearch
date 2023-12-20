@@ -45,7 +45,9 @@ export default function SearchBar() {
         following={searchResult && searchResult.following}
         location={searchResult && searchResult.location}
         url={searchResult && searchResult.html_url}
-        twitter={searchResult && searchResult.twitter_username}
+        twitter={
+          (searchResult && searchResult.twitter_username) || "Not available"
+        }
       />
     </div>
   );
