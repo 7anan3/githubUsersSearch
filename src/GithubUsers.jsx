@@ -41,8 +41,8 @@ export default function GithubUsers() {
     <AppContext.Provider value={{ user, users, isDarkMode, setIsDarkMode }}>
       <main
         className={`${
-          isDarkMode && "dark"
-        } py-12 px-6 bg-greylight dark:bg-blue1`}
+          isDarkMode ? "dark bg-navy" : ""
+        } py-12 px-6 bg-greylight`}
       >
         <SearchBar />
         {/* <div>{user[0] && user[0].location}</div> */}

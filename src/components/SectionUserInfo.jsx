@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AppContext } from "../GithubUsers";
-import NavBar from "./NavBar";
 export default function SectionUserInfo({
   avatar,
   date,

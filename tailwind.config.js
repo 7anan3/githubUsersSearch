@@ -11,7 +11,6 @@ export default {
       grey2: "rgb(142, 148, 164)",
       white: "rgb(255 255 255)",
       greylight: "rgb(245, 248, 255)",
-      greylight2: "rgb(243, 244, 249)",
     },
   },
   fontFamily: {
