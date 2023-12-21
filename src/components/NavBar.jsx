@@ -8,7 +8,7 @@ export default function NavBar({ name }) {
   };
   return (
     <nav className="flex justify-between">
-      <p className="text-lg">{name}</p>
+      <p className="text-lg dark:text-white">{name}</p>
       <a
         className="flex items-center text-lg"
         role="button"

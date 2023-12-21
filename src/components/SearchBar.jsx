@@ -21,7 +21,6 @@ export default function SearchBar() {
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
-
   console.log(user);
   return (
     <div>
@@ -52,10 +51,10 @@ export default function SearchBar() {
         following={searchResult && searchResult.following}
         location={searchResult && searchResult.location}
         url={searchResult && searchResult.html_url}
-        twitter={
-          (searchResult && searchResult.twitter_username) || "Not available"
-        }
+        twitter={searchResult && searchResult.twitter_username}
         name1={searchResult && searchResult.name}
+        login={searchResult && searchResult.login}
+        company={searchResult && searchResult.company}
       />
     </div>
   );
