@@ -3,9 +3,10 @@ import { AppContext } from "../GithubUsers";
 import NavBar from "./NavBar";
 import SectionUserInfo from "./SectionUserInfo";
 export default function SearchBar() {
-  const { user, users } = useContext(AppContext);
+  const { user, users, isDarkMode, setIsDarkMode } = useContext(AppContext);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState(null);
+
   const handleSearch = (e) => {
     e.preventDefault();
 
@@ -32,7 +33,7 @@ export default function SearchBar() {
             placeholder="Search Github username"
             value={searchInput}
             onChange={handleSearchInput}
-            className="p-4 shadow w-full rounded-lg text-grey2 font-light"
+            className="p-4 shadow w-full rounded-lg text-grey2 font-light dark:bg-blue1 dark:text-white"
           />
           <button
             className="bg-blue2 absolute top-1/2 right-[-33px] transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-lg text-white"

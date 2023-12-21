@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar";
 
 export const AppContext = createContext();
@@ -7,6 +6,7 @@ export const AppContext = createContext();
 export default function GithubUsers() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const accessToken = "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";
 
@@ -38,8 +38,12 @@ export default function GithubUsers() {
   }, [accessToken]);
 
   return (
-    <AppContext.Provider value={{ user, users }}>
-      <main className="pt-12 px-6">
+    <AppContext.Provider value={{ user, users, isDarkMode, setIsDarkMode }}>
+      <main
+        className={`${
+          isDarkMode && "dark"
+        } py-12 px-6 bg-greylight dark:bg-blue1`}
+      >
         <SearchBar />
         {/* <div>{user[0] && user[0].location}</div> */}
       </main>
