@@ -32,7 +32,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="lg:w-7/12 lg:m-auto">
       <NavBar name={searchResult && searchResult.login} />
       <form className="flex items-center mt-8 mb-5">
         <div className="relative shrink-0 w-full">
