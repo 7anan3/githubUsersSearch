@@ -10,6 +10,7 @@ export default function GithubUsers() {
 
   const accessToken = "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";
 
+  //Get the data from the API
   useEffect(() => {
     fetch("https://api.github.com/users", {
       headers: {
@@ -45,7 +46,6 @@ export default function GithubUsers() {
         } py-12 px-6 bg-greylight`}
       >
         <SearchBar />
-        {/* <div>{user[0] && user[0].location}</div> */}
       </main>
     </AppContext.Provider>
   );

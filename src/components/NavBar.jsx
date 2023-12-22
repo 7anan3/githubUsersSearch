@@ -4,6 +4,7 @@ import { AppContext } from "../GithubUsers";
 export default function NavBar({ name }) {
   const { isDarkMode, setIsDarkMode } = useContext(AppContext);
 
+  //Toggle dark /light mode + localstorage
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);

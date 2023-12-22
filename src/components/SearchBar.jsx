@@ -14,6 +14,7 @@ export default function SearchBar() {
     }
   }, []);
 
+  //Handle search and add localstorage
   const handleSearch = (e) => {
     e.preventDefault();
 
