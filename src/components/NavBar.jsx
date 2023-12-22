@@ -1,11 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../GithubUsers";
+
 export default function NavBar({ name }) {
   const { isDarkMode, setIsDarkMode } = useContext(AppContext);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
   };
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode !== null) {
+      setIsDarkMode(JSON.parse(savedDarkMode));
+    }
+  }, [setIsDarkMode]);
+
   return (
     <nav className="flex justify-between">
       <p className="text-lg dark:text-white">{name}</p>
@@ -25,7 +36,6 @@ export default function NavBar({ name }) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                dataSlot="icon"
                 className="w-6 h-6"
               >
                 <path
@@ -44,7 +54,6 @@ export default function NavBar({ name }) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                dataSlot="icon"
                 className="w-6 h-6"
               >
                 <path

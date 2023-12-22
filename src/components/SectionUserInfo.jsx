@@ -67,7 +67,7 @@ export default function SectionUserInfo({
               className="w-6 mr-4 dark:stroke-white"
             />
           </svg>
-          <div className="ml-2.5">{location}</div>
+          <span className="ml-2.5">{location}</span>
         </div>
         <div className="flex mb-4">
           <svg
@@ -85,7 +85,7 @@ export default function SectionUserInfo({
               className="w-6 mr-4 dark:stroke-white"
             />
           </svg>
-          <div className="ml-2.5">{url}</div>
+          <span className="ml-2.5">{url}</span>
         </div>
         <div className="flex mb-4">
           <svg
@@ -100,7 +100,7 @@ export default function SectionUserInfo({
               className="w-6 mr-4 dark:stroke-white"
             />
           </svg>
-          <div className="ml-2.5">{twitter ? `@${twitter}` : null}</div>
+          <span className="ml-2.5">{twitter ? `@${twitter}` : null}</span>
         </div>
         <div className="flex mb-4">
           <svg
@@ -118,7 +118,7 @@ export default function SectionUserInfo({
               className="w-6 mr-4 dark:stroke-white"
             />
           </svg>
-          <div className="ml-2.5">{company}</div>
+          <span className="ml-2.5">{company}</span>
         </div>
       </div>
     </section>

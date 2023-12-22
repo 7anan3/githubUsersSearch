@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../GithubUsers";
 import NavBar from "./NavBar";
 import SectionUserInfo from "./SectionUserInfo";
@@ -7,21 +7,30 @@ export default function SearchBar() {
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
+  useEffect(() => {
+    const storedSearchResult = localStorage.getItem("searchResult");
+    if (storedSearchResult) {
+      setSearchResult(JSON.parse(storedSearchResult));
+    }
+  }, []);
+
   const handleSearch = (e) => {
     e.preventDefault();
 
     const result = user.find((userr) => userr.login === searchInput);
     if (result) {
       setSearchResult(result);
+      localStorage.setItem("searchResult", JSON.stringify(result));
     } else {
       setSearchResult(null);
+      localStorage.removeItem("searchResult");
     }
   };
 
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
-  console.log(user);
+
   return (
     <div>
       <NavBar name={searchResult && searchResult.login} />
