@@ -24,7 +24,6 @@ export default function NavBar({ name }) {
       <a
         className="flex items-center text-lg"
         role="button"
-        tabIndex={0}
         onClick={toggleDarkMode}
       >
         <p>

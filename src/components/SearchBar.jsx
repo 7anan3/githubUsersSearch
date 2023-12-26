@@ -3,16 +3,16 @@ import { AppContext } from "../GithubUsers";
 import NavBar from "./NavBar";
 import SectionUserInfo from "./SectionUserInfo";
 export default function SearchBar() {
-  const { user, setUser, isDarkMode, setIsDarkMode } = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
   const [searchInput, setSearchInput] = useState("");
   const accessToken = import.meta.env.VITE_GITHUB_ACCESS_TOKEN;
+
+  //extract Day,Month, Year from the long form of Date
   const date = user?.created_at;
-
   const dateObject = new Date(date);
-
   // Get the year, month, and day
   const year = dateObject.getFullYear();
-  const month = (dateObject.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+  const month = (dateObject.getMonth() + 1).toString().padStart(2, "0");
   const day = dateObject.getDate().toString().padStart(2, "0");
 
   //Handle search and add localstorage
@@ -71,7 +71,7 @@ export default function SearchBar() {
       </form>
       <SectionUserInfo
         avatar={user && user.avatar_url}
-        date={`${day}-${month}-${year}`}
+        date={`Joined at ${day}-${month}-${year}`}
         bio={(user && user.bio) || "This profile has no bio"}
         repos={user && user.public_repos}
         followers={user && user.followers}
