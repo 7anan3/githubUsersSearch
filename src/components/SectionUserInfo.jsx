@@ -137,7 +137,7 @@ export default function SectionUserInfo({
           </div>
         </>
       ) : (
-        <p className="dark:text-white dark:h-screen">
+        <p className="dark:text-white h-screen">
           Please set the username you would like to search for
         </p>
       )}
