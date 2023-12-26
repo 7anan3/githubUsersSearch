@@ -14,13 +14,13 @@ export default function SectionUserInfo({
   login,
   company,
 }) {
-  const { isDarkMode, setIsDarkMode } = useContext(AppContext);
+  const { user, isDarkMode, setIsDarkMode } = useContext(AppContext);
 
   return (
     <section className="shadow rounded-lg py-6 px-6 bg-white dark:bg-blue1">
       <div className="flex">
         <figure className="w-28">
-          <img src={avatar} alt="avatar" className="rounded-full " />
+          <img src={avatar} alt="avatar" className="rounded-full" />
         </figure>
         <div className="w-11/12 ml-2.5 ">
           <p className="dark:text-white">{name1}</p>
@@ -68,7 +68,9 @@ export default function SectionUserInfo({
                 className="w-6 mr-4 dark:stroke-white"
               />
             </svg>
-            <span className="ml-2.5">{location}</span>
+            <span className="ml-2.5">
+              {location ? `${location}` : "Not available"}
+            </span>
           </div>
           <div className="flex mb-4">
             <svg
@@ -86,7 +88,7 @@ export default function SectionUserInfo({
                 className="w-6 mr-4 dark:stroke-white"
               />
             </svg>
-            <span className="ml-2.5">{url}</span>
+            <span className="ml-2.5">{url ? `${url}` : "Not available"}</span>
           </div>
         </div>
         <div>
@@ -103,7 +105,9 @@ export default function SectionUserInfo({
                 className="w-6 mr-4 dark:stroke-white"
               />
             </svg>
-            <span className="ml-2.5">{twitter ? `@${twitter}` : null}</span>
+            <span className="ml-2.5">
+              {twitter ? `@${twitter}` : "Not available"}
+            </span>
           </div>
           <div className="flex mb-4">
             <svg
@@ -121,7 +125,9 @@ export default function SectionUserInfo({
                 className="w-6 mr-4 dark:stroke-white"
               />
             </svg>
-            <span className="ml-2.5">{company}</span>
+            <span className="ml-2.5">
+              {company ? `${company}` : "Not available"}
+            </span>
           </div>
         </div>
       </div>

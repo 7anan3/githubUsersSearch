@@ -3,38 +3,55 @@ import { AppContext } from "../GithubUsers";
 import NavBar from "./NavBar";
 import SectionUserInfo from "./SectionUserInfo";
 export default function SearchBar() {
-  const { user, users, isDarkMode, setIsDarkMode } = useContext(AppContext);
+  const { user, setUser, isDarkMode, setIsDarkMode } = useContext(AppContext);
   const [searchInput, setSearchInput] = useState("");
-  const [searchResult, setSearchResult] = useState(null);
+  const accessToken = import.meta.env.VITE_GITHUB_ACCESS_TOKEN;
+  const date = user?.created_at;
 
-  useEffect(() => {
-    const storedSearchResult = localStorage.getItem("searchResult");
-    if (storedSearchResult) {
-      setSearchResult(JSON.parse(storedSearchResult));
-    }
-  }, []);
+  const dateObject = new Date(date);
+
+  // Get the year, month, and day
+  const year = dateObject.getFullYear();
+  const month = (dateObject.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+  const day = dateObject.getDate().toString().padStart(2, "0");
 
   //Handle search and add localstorage
   const handleSearch = (e) => {
     e.preventDefault();
-
-    const result = user.find((userr) => userr.login === searchInput);
-    if (result) {
-      setSearchResult(result);
-      localStorage.setItem("searchResult", JSON.stringify(result));
-    } else {
-      setSearchResult(null);
-      localStorage.removeItem("searchResult");
+    if (!searchInput.trim()) {
+      return;
     }
+
+    // Fetch user information only when the search button is clicked
+    fetch(`https://api.github.com/users/${searchInput}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(data);
+        localStorage.setItem("userData", JSON.stringify(data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
 
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      setUser(JSON.parse(storedUserData));
+    }
+  }, [setUser]);
+
   return (
     <div className="lg:w-7/12 lg:m-auto">
-      <NavBar name={searchResult && searchResult.login} />
+      <NavBar name={user && user.login} />
       <form className="flex items-center mt-8 mb-5">
         <div className="relative shrink-0 w-full">
           <input
@@ -53,18 +70,18 @@ export default function SearchBar() {
         </div>
       </form>
       <SectionUserInfo
-        avatar={searchResult && searchResult.avatar_url}
-        date={searchResult && searchResult.created_at}
-        bio={(searchResult && searchResult.bio) || "This profile has no bio"}
-        repos={searchResult && searchResult.public_repos}
-        followers={searchResult && searchResult.followers}
-        following={searchResult && searchResult.following}
-        location={searchResult && searchResult.location}
-        url={searchResult && searchResult.html_url}
-        twitter={searchResult && searchResult.twitter_username}
-        name1={searchResult && searchResult.name}
-        login={searchResult && searchResult.login}
-        company={searchResult && searchResult.company}
+        avatar={user && user.avatar_url}
+        date={`${day}-${month}-${year}`}
+        bio={(user && user.bio) || "This profile has no bio"}
+        repos={user && user.public_repos}
+        followers={user && user.followers}
+        following={user && user.following}
+        location={user && user.location}
+        url={user && user.html_url}
+        twitter={user && user.twitter_username}
+        name1={user && user.name}
+        login={user && user.login}
+        company={(user && user.company) || "Not available"}
       />
     </div>
   );
