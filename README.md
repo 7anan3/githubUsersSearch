@@ -1,5 +1,6 @@
 # <p align="center">Github users App </p>
 
+This project aims to locate existing GitHub users, providing details such as their GitHub join date, profile picture, and additional information, including their Twitter handle, location, and the count of public repositories they have created.
 
 ## This project built with : 
 
