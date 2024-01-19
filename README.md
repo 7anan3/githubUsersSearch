@@ -1,6 +1,7 @@
 # <p align="center">Github users App </p>
 
 This project aims to locate existing GitHub users, providing details such as their GitHub join date, profile picture, and additional information, including their Twitter handle, location, and the count of public repositories they have created.
+Elevating the user experience, the website offers a Customize Look feature, allowing users to seamlessly toggle between light and dark themes for a visually appealing experience. Moreover, the layout effortlessly adapts to diverse screen sizes, ensuring an optimal view whether on smartphones, tablets, or computers.
 
 ## This project built with : 
 
