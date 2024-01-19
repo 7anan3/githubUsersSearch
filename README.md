@@ -24,8 +24,6 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 ## Screenshots
 <img width="589" alt="home page" src="https://github.com/HananeEL-2023/githubUsersSearch/assets/57252797/9869ceb4-9fc7-43b0-85a2-139993176f99">
 <img width="589" alt="second page" src="https://github.com/HananeEL-2023/githubUsersSearch/assets/57252797/ff8bcf5a-234c-4848-8f2f-b4d8a37daff4">
